@@ -40,6 +40,7 @@ export default {
     font-size: 10px;
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     color: #333333;
+    /*height: 100%;*/
   }
   @font-face {
     font-family: 'icomoon';
@@ -114,9 +115,11 @@ export default {
 <style scoped>
   #app {
     position: relative;
-    overflow: scroll;
+    height: 100%;
     font-size: 1.4rem;
     background-color: #F7F7F7;
+    max-width: 100rem;
+    margin: 0 auto;
   }
   #nav-btn {
     position: absolute;
