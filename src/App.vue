@@ -8,7 +8,7 @@
     <div id="page-nav" @click="navShow=!navShow" :class="{active:navShow}">
       <div class="nav-link-box">
         <span class="icon-arrow-up2"></span>
-        <router-link :to="{name:'page1'}">page1</router-link>
+        <router-link :to="{name:'page1'}">三明治</router-link>
         <router-link :to="{name:'page2'}">page2</router-link>
       </div>
     </div>
@@ -51,7 +51,7 @@ export default {
     font-size: 10px;
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     color: #333333;
-    /*height: 100%;*/
+    height: 100%;
   }
   @font-face {
     font-family: 'icomoon';
@@ -121,17 +121,17 @@ export default {
   .icon-arrow-left2:before {
     content: "\ea40";
   }
-
 </style>
 <style scoped>
   #app {
     position: relative;
     height: 100%;
     font-size: 1.4rem;
-    background-color: #F7F7F7;
+    background-color: #333333;
     max-width: 100rem;
     margin: 0 auto;
-    padding: 1.5rem 4rem;
+    padding: 4.5rem 4rem 1.5rem;
+    overflow: scroll;
   }
   #nav-btn {
     position: absolute;
@@ -140,6 +140,7 @@ export default {
     top: -100%;
     transition: all 0.3s;
     opacity: 0.8;
+    z-index: 99999;
   }
   #nav-btn.active{
     top: 0;
@@ -165,7 +166,7 @@ export default {
     overflow: hidden;
     max-height: 40%;
     transition: all 0.3s;
-    opacity: 0.8;
+    z-index: 999999;
   }
   #page-nav.active{
     top: 0;
@@ -183,7 +184,13 @@ export default {
     color: #42b983;
   }
   .page-title{
-    padding-bottom: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem 4rem;
+    height:3rem;
+    color: #ffffff;
   }
   .page-title .page-title-info{
     border-bottom: 3px solid #42b983;
