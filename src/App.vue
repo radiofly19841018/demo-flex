@@ -12,6 +12,9 @@
         <router-link :to="{name:'page2'}">page2</router-link>
       </div>
     </div>
+    <div class="page-title" v-if="pageTitle">
+      <span class="page-title-info">{{pageTitle}}</span>
+    </div>
     <router-view></router-view>
   </div>
 </template>
@@ -22,7 +25,15 @@ export default {
   data () {
     return {
       navShow: false,
-      msg: 1122334
+      pageTitle: ''
+    }
+  },
+  created () {
+    this.$root.$on('updateTitle', this.changeTitle)
+  },
+  methods: {
+    changeTitle (val) {
+      this.pageTitle = val
     }
   }
 }
@@ -120,6 +131,7 @@ export default {
     background-color: #F7F7F7;
     max-width: 100rem;
     margin: 0 auto;
+    padding: 1.5rem 4rem;
   }
   #nav-btn {
     position: absolute;
@@ -169,7 +181,12 @@ export default {
     margin: 0 0.5rem;
     text-decoration: none;
     color: #42b983;
-
+  }
+  .page-title{
+    padding-bottom: 5px;
+  }
+  .page-title .page-title-info{
+    border-bottom: 3px solid #42b983;
   }
 
 </style>

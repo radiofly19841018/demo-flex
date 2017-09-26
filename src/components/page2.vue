@@ -17,6 +17,9 @@ export default {
   data () {
     return {
     }
+  },
+  mounted () {
+    this.$root.$emit('updateTitle', '第二页')
   }
 }
 </script>
