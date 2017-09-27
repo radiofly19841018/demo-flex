@@ -1,15 +1,24 @@
 <template>
   <div id="app">
-    <div id="nav-btn" @click="navShow=!navShow" :class="{active:!navShow}">
+    <div class="nav-btn" @click="navShow=!navShow" :class="{active:!navShow}">
       <div class="nav-btn-inner">
         <span class="icon-arrow-down2"></span>
       </div>
     </div>
+    <div class="nav-btn" @click="navShow=!navShow" :class="{active:navShow}">
+      <div class="nav-btn-inner">
+        <span class="icon-arrow-up2"></span>
+      </div>
+    </div>
     <div id="page-nav" @click="navShow=!navShow" :class="{active:navShow}">
       <div class="nav-link-box">
-        <span class="icon-arrow-up2"></span>
         <router-link :to="{name:'page1'}">三明治</router-link>
-        <router-link :to="{name:'page2'}">page2</router-link>
+        <router-link :to="{name:'page2'}">FLEX三明治</router-link>
+        <router-link :to="{name:'page3'}">基础结构</router-link>
+        <router-link :to="{name:'page4'}">主轴排列方向</router-link>
+        <router-link :to="{name:'page5'}">主轴换行</router-link>
+        <router-link :to="{name:'page6'}">主轴对齐方式</router-link>
+        <router-link :to="{name:'page7'}">交叉轴对齐方式</router-link>
       </div>
     </div>
     <div class="page-title" v-if="pageTitle">
@@ -132,17 +141,18 @@ export default {
     margin: 0 auto;
     padding: 4.5rem 4rem 1.5rem;
     overflow: scroll;
+    color: #ffffff;
   }
-  #nav-btn {
+  .nav-btn {
     position: absolute;
-    padding: 0.3rem;
+    padding: 0.5rem;
     left: 0;
     top: -100%;
     transition: all 0.3s;
     opacity: 0.8;
     z-index: 99999;
   }
-  #nav-btn.active{
+  .nav-btn.active{
     top: 0;
   }
   .nav-btn-inner{
@@ -155,11 +165,12 @@ export default {
     justify-content: center;
     align-items: center;
     font-size: 1.6rem;
+    color: #333333;
   }
   #page-nav{
     position: absolute;
-    left: 0;
-    right: 0;
+    left: 4rem;
+    right: 4rem;
     top: -100%;
     padding: 0;
     font-size: 1.6rem;

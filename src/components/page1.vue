@@ -65,7 +65,9 @@
     <div class="page-header">header</div>
     <div class="page-body clearfix">
       <div><div class="body-left">left</div></div>
-      <div><div class="body-mid">mid</div></div>
+      <div><div class="body-mid">mid
+        <!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+      </div></div>
       <div><div class="body-right">right</div></div>
     </div>
     <div class="page-footer">footer</div>
