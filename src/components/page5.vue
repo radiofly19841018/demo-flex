@@ -17,8 +17,10 @@
     padding: 0 1rem;
     margin: 1rem;
     border: 0.5rem solid #43b883;
-    height: 4rem;
+    /*height: 4rem;*/
     line-height: 3rem;
+    /*width: 6rem;*/
+    word-wrap: break-word;
   }
   .notice{
     padding: 1rem;
@@ -31,7 +33,7 @@
   <div class="page" @click="changeClass">
     <div class="notice">{{showText}}</div>
     <div class="container" :class="[itemClass]">
-      <div class="item">item1</div>
+      <div class="item">item1item1item1item1item1item1item1</div>
       <div class="item">item2</div>
       <div class="item">item3</div>
       <div class="item">item4</div>
