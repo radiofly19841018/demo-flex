@@ -19,6 +19,10 @@
         <router-link :to="{name:'page5'}">主轴换行</router-link>
         <router-link :to="{name:'page6'}">主轴对齐方式</router-link>
         <router-link :to="{name:'page7'}">交叉轴对齐方式</router-link>
+        <router-link :to="{name:'page8'}">多根轴线轴对齐方式</router-link>
+        <router-link :to="{name:'page9'}">子项排列顺序</router-link>
+        <router-link :to="{name:'page10'}">子项放大比例</router-link>
+        <router-link :to="{name:'page11'}">子项缩小</router-link>
       </div>
     </div>
     <div class="page-title" v-if="pageTitle">
