@@ -13,6 +13,9 @@ import page10 from '@/components/page10'
 import page11 from '@/components/page11'
 import page12 from '@/components/page12'
 import page13 from '@/components/page13'
+import page14 from '@/components/page14'
+import page15 from '@/components/page15'
+import page16 from '@/components/page16'
 
 Vue.use(Router)
 
@@ -82,6 +85,21 @@ export default new Router({
       name: 'page13',
       path: '/page13',
       component: page13
+    },
+    {
+      name: 'page14',
+      path: '/page14',
+      component: page14
+    },
+    {
+      name: 'page15',
+      path: '/page15',
+      component: page15
+    },
+    {
+      name: 'page16',
+      path: '/page16',
+      component: page16
     }
   ]
 })
