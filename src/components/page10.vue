@@ -117,16 +117,17 @@ export default {
         '0-1-1-0',
         '1-0-0-0'
       ],
-      showText: '1-1-1-1'
+      showText: ''
     }
   },
   mounted () {
     this.$root.$emit('updateTitle', '子项放大比例')
+    this.showText = this.notice[0]
   },
   methods: {
     changeClass () {
       this.num++
-      if (this.num > 4) {
+      if (this.num > (this.notice.length - 1)) {
         this.num = 0
       }
       this.itemClass = 'active' + this.num

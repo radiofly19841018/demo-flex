@@ -23,6 +23,7 @@
         <router-link :to="{name:'page9'}">子项排列顺序</router-link>
         <router-link :to="{name:'page10'}">子项放大比例</router-link>
         <router-link :to="{name:'page11'}">子项缩小</router-link>
+        <router-link :to="{name:'page12'}">子项特定的交叉轴对齐方式</router-link>
       </div>
     </div>
     <div class="page-title" v-if="pageTitle">

@@ -61,16 +61,17 @@ export default {
         'wrap',
         'wrap-reverse'
       ],
-      showText: 'nowrap'
+      showText: ''
     }
   },
   mounted () {
     this.$root.$emit('updateTitle', '主轴换行')
+    this.showText = this.notice[0]
   },
   methods: {
     changeClass () {
       this.num++
-      if (this.num > 2) {
+      if (this.num > (this.notice.length - 1)) {
         this.num = 0
       }
       this.itemClass = 'active' + this.num

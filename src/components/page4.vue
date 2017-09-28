@@ -60,16 +60,17 @@ export default {
         'column',
         'column-reverse'
       ],
-      showText: 'row'
+      showText: ''
     }
   },
   mounted () {
     this.$root.$emit('updateTitle', '主轴排列方向')
+    this.showText = this.notice[0]
   },
   methods: {
     changeClass () {
       this.num++
-      if (this.num > 3) {
+      if (this.num > (this.notice.length - 1)) {
         this.num = 0
       }
       this.itemClass = 'active' + this.num

@@ -105,11 +105,12 @@ export default {
         '4',
         '5'
       ],
-      showText: '-2'
+      showText: ''
     }
   },
   mounted () {
     this.$root.$emit('updateTitle', '子项排列顺序')
+    this.showText = this.notice[0]
   },
   methods: {
     changeClass () {

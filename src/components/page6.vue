@@ -59,16 +59,17 @@ export default {
         'space-between',
         'space-around'
       ],
-      showText: 'flex-start'
+      showText: ''
     }
   },
   mounted () {
     this.$root.$emit('updateTitle', '主轴对齐方式')
+    this.showText = this.notice[0]
   },
   methods: {
     changeClass () {
       this.num++
-      if (this.num > 4) {
+      if (this.num > (this.notice.length - 1)) {
         this.num = 0
       }
       this.itemClass = 'active' + this.num

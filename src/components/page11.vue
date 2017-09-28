@@ -7,12 +7,6 @@
   .container.active0 .item{
     flex-shrink: 0;
   }
-  .container.active3 .item{
-    flex-shrink: 1;
-  }
-  .container.active4 .item{
-    flex-shrink: 4;
-  }
   .container.active1 .item1{
     flex-shrink: 0;
   }
@@ -23,6 +17,21 @@
     flex-shrink: 1;
   }
   .container.active2 .item3{
+    flex-shrink: 6;
+  }
+  .container.active3 .item1{
+    flex-shrink: 0;
+  }
+  .container.active3 .item2{
+    flex-shrink: 1;
+  }
+  .container.active3 .item3{
+    flex-shrink: 2;
+  }
+  .container.active4 .item{
+    flex-shrink: 1;
+  }
+  .container.active4 .item{
     flex-shrink: 4;
   }
   .item{
@@ -60,20 +69,22 @@ export default {
       notice: [
         '0-0-0',
         '0-1-1',
-        '0-1-4',
+        '0-1-6',
+        '0-1-2',
         '1-1-1',
         '4-4-4'
       ],
-      showText: '0-0-0'
+      showText: ''
     }
   },
   mounted () {
     this.$root.$emit('updateTitle', '子项缩小')
+    this.showText = this.notice[0]
   },
   methods: {
     changeClass () {
       this.num++
-      if (this.num > 4) {
+      if (this.num > (this.notice.length - 1)) {
         this.num = 0
       }
       this.itemClass = 'active' + this.num
