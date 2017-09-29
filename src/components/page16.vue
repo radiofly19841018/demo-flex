@@ -42,7 +42,7 @@
   }
 
   .active0{
-    justify-items: start;
+    justify-items: stretch ;
   }
   .active1{
     justify-items: end;
@@ -51,10 +51,10 @@
     justify-items: center;
   }
   .active3{
-    justify-items: stretch ;
+    justify-items: start;
   }
   .activeOther0{
-    align-items: start;
+    align-items: stretch;
   }
   .activeOther1{
     align-items: end;
@@ -63,7 +63,7 @@
     align-items: center;
   }
   .activeOther3{
-    align-items: stretch;
+    align-items: start;
   }
 
 
