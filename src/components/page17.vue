@@ -116,7 +116,7 @@ export default {
     }
   },
   mounted () {
-    this.$root.$emit('updateTitle', '定义栅格线大小')
+    this.$root.$emit('updateTitle', '栅格项目与栅格容器对齐')
   },
   methods: {
     changeClass () {
