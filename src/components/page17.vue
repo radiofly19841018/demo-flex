@@ -39,43 +39,43 @@
   }
 
   .active0{
-    justify-content: start;
-  }
-  .active1{
-    justify-content: end;
-  }
-  .active2{
-    justify-content: center;
-  }
-  .active3{
     justify-content: stretch;
   }
+  .active1{
+    justify-content: start;
+  }
+  .active2{
+    justify-content: end;
+  }
+  .active3{
+    justify-content: center;
+  }
   .active4{
-    justify-content: space-around;
+    justify-content: space-between;
   }
   .active5{
-    justify-content: space-between;
+    justify-content: space-around;
   }
   .active6{
     justify-content: space-evenly;
   }
   .activeOther0{
-    align-content: start;
-  }
-  .activeOther1{
-    align-content: end;
-  }
-  .activeOther2{
-    align-content: center;
-  }
-  .activeOther3{
     align-content: stretch;
   }
+  .activeOther1{
+    align-content: start;
+  }
+  .activeOther2{
+    align-content: end;
+  }
+  .activeOther3{
+    align-content: center;
+  }
   .activeOther4{
-    align-content: space-around;
+    align-content: space-between;
   }
   .activeOther5{
-    align-content: space-between;
+    align-content: space-around;
   }
   .activeOther6{
     align-content: space-evenly;
@@ -87,17 +87,12 @@
 
 <template>
   <div class="page">
-    <div class="btn-box"><span @click="changeClass">列轴对齐</span><span @click="changeClassOther">行轴对齐</span><span @click="showAll=!showAll">续满</span><span @click="addItem">续一格</span></div>
+    <div class="btn-box"><span @click="changeClass">列轴对齐</span><span @click="changeClassOther">行轴对齐</span><span @click="addItem">续一格</span></div>
     <div class="container" :class="[itemClass,itemClassOther]">
       <div class="item item1">header</div>
       <div class="item item2">left</div>
       <div class="item item3">right</div>
       <div class="item item4">footer</div>
-      <div class="item item5" v-if="showAll">5</div>
-      <div class="item item5" v-if="showAll">5</div>
-      <div class="item item5" v-if="showAll">5</div>
-      <div class="item item5" v-if="showAll">5</div>
-      <div class="item item5" v-if="showAll">5</div>
       <div class="item" @click="addItem" v-for="item of items">new</div>
     </div>
   </div>
@@ -111,8 +106,7 @@ export default {
       numOther: 0,
       itemClass: 'active0',
       itemClassOther: 'activeOther0',
-      items: [],
-      showAll: false
+      items: []
     }
   },
   mounted () {
