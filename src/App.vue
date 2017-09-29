@@ -27,7 +27,8 @@
         <router-link :to="{name:'page13'}">坑</router-link>
         <router-link :to="{name:'page14'}">GRID</router-link>
         <router-link :to="{name:'page15'}">定义栅格项目</router-link>
-        <router-link :to="{name:'page16'}">定义栅格线大小</router-link>
+        <router-link :to="{name:'page16'}">定义栅格线大小和栅格项目对齐</router-link>
+        <router-link :to="{name:'page17'}">栅格项目与栅格容器对齐</router-link>
       </div>
     </div>
     <div class="page-title" v-if="pageTitle">

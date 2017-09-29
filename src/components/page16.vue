@@ -11,9 +11,9 @@
                          "left left ... right"
                          "footer footer footer footer";
 
-    grid-column-gap: 20px;
-    grid-row-gap: 15px;
-    grid-gap: 20px 15px;
+    /*grid-column-gap: 10px;*/
+    /*grid-row-gap: 30px;*/
+    grid-gap: 30px 10px;
 
   }
   .item{
@@ -98,7 +98,7 @@ export default {
     }
   },
   mounted () {
-    this.$root.$emit('updateTitle', '定义栅格线大小')
+    this.$root.$emit('updateTitle', '定义栅格线大小和栅格项目对齐')
   },
   methods: {
     changeClass () {
