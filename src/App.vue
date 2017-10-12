@@ -1,42 +1,92 @@
+<style>
+  *{
+    box-sizing: border-box;
+  }
+  html,
+  body{
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    font-size: 10px;
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    color: #333333;
+    height: 100%;
+  }
+  #car-info{
+    padding: 2rem;
+    font-size: 2rem;
+  }
+  .car-title{
+    margin-bottom: 1rem;
+  }
+  .text-center{
+    text-align: center;
+  }
+  .input-row{
+    margin-bottom: 0.8rem;
+    display: flex;
+  }
+  .input-row input{
+    display: inline-block;
+    padding: 0.5rem;
+    border: 1px solid #eeeeee;
+    height: 3rem;
+    line-height: 2rem;
+    font-size: 1.4rem;
+    flex-grow: 1;
+  }
+  .input-row label{
+    display: inline-block;
+    width: 5em;
+    line-height: 3rem;
+    font-size: 1.4rem;
+  }
+  .input-row.button-box{
+    text-align: center;
+    justify-content: center;
+  }
+  .input-row button{
+    width: 6em;
+    height: 3rem;
+    margin: 0 1rem;
+    display: inline-block;
+    border: 1px solid #ffffff;
+  }
+
+  
+</style>
+
 <template>
-  <div id="app">
-    <div class="nav-btn" @click="navShow=!navShow" :class="{active:!navShow}">
-      <div class="nav-btn-inner">
-        <span class="icon-arrow-down2"></span>
-      </div>
-    </div>
-    <div class="nav-btn" @click="navShow=!navShow" :class="{active:navShow}">
-      <div class="nav-btn-inner">
-        <span class="icon-arrow-up2"></span>
-      </div>
-    </div>
-    <div id="page-nav" @click="navShow=!navShow" :class="{active:navShow}">
-      <div class="nav-link-box">
-        <router-link :to="{name:'page1'}">三明治</router-link>
-        <router-link :to="{name:'page2'}">FLEX三明治</router-link>
-        <router-link :to="{name:'page3'}">基础结构</router-link>
-        <router-link :to="{name:'page4'}">主轴排列方向</router-link>
-        <router-link :to="{name:'page5'}">主轴换行</router-link>
-        <router-link :to="{name:'page6'}">主轴对齐方式</router-link>
-        <router-link :to="{name:'page7'}">交叉轴对齐方式</router-link>
-        <router-link :to="{name:'page8'}">多根轴线轴对齐方式</router-link>
-        <router-link :to="{name:'page9'}">子项排列顺序</router-link>
-        <router-link :to="{name:'page10'}">子项放大比例</router-link>
-        <router-link :to="{name:'page11'}">子项缩小</router-link>
-        <router-link :to="{name:'page12'}">子项特定的交叉轴对齐方式</router-link>
-        <router-link :to="{name:'page13'}">坑</router-link>
-        <router-link :to="{name:'page14'}">GRID</router-link>
-        <router-link :to="{name:'page15'}">定义栅格项目</router-link>
-        <router-link :to="{name:'page16'}">定义栅格线大小和栅格项目对齐</router-link>
-        <router-link :to="{name:'page17'}">栅格项目与栅格容器对齐</router-link>
-        <router-link :to="{name:'page18'}">自动生成的栅格轨迹</router-link>
-      </div>
-    </div>
-    <div class="page-title" v-if="pageTitle">
-      <span class="page-title-info">{{pageTitle}}</span>
-    </div>
-    <router-view></router-view>
+<form method="post" action="/" id="car-info">
+  <div class="text-center car-title">
+    车辆信息录入
   </div>
+  <div class="input-row">
+    <label for="device_id">设备号</label>
+    <input name="device_id" type="text" />
+  </div>
+
+  <div class="input-row">
+    <label for="car_num">车牌号</label>
+    <input name="car_num" type="text" />
+  </div>
+  <div class="input-row">
+    <label for="pin_pai">品牌</label>
+    <input name="pin_pai" type="text" />
+  </div>
+  <div class="input-row">
+    <label for="che_xing">车型</label>
+    <input name="che_xing" type="text" />
+  </div>
+  <div class="input-row">
+    <label for="engine">发动机</label>
+    <input name="engine" type="text" />
+  </div>
+  <div class="input-row button-box">
+    <button type="reset">重置</button>
+    <button type="submit">提交</button>
+  </div>
+</form>
 </template>
 
 <script>
@@ -59,163 +109,3 @@ export default {
 }
 </script>
 
-<style>
-  *{
-    box-sizing: border-box;
-  }
-  html,
-  body{
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-    font-size: 10px;
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    color: #333333;
-    height: 100%;
-  }
-  @font-face {
-    font-family: 'icomoon';
-    src:  url('./fonts/icomoon.eot?c2q9p9');
-    src:  url('./fonts/icomoon.eot?c2q9p9#iefix') format('embedded-opentype'),
-      url('./fonts/icomoon.ttf?c2q9p9') format('truetype'),
-      url('./fonts/icomoon.woff?c2q9p9') format('woff'),
-      url('./fonts/icomoon.svg?c2q9p9#icomoon') format('svg');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  [class^="icon-"], [class*=" icon-"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'icomoon' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  .icon-menu3:before {
-    content: "\e9bf";
-  }
-  .icon-menu4:before {
-    content: "\e9c0";
-  }
-  .icon-plus:before {
-    content: "\ea0a";
-  }
-  .icon-minus:before {
-    content: "\ea0b";
-  }
-  .icon-checkmark:before {
-    content: "\ea10";
-  }
-  .icon-checkmark2:before {
-    content: "\ea11";
-  }
-  .icon-arrow-up-left2:before {
-    content: "\ea39";
-  }
-  .icon-arrow-up2:before {
-    content: "\ea3a";
-  }
-  .icon-arrow-up-right2:before {
-    content: "\ea3b";
-  }
-  .icon-arrow-right2:before {
-    content: "\ea3c";
-  }
-  .icon-arrow-down-right2:before {
-    content: "\ea3d";
-  }
-  .icon-arrow-down2:before {
-    content: "\ea3e";
-  }
-  .icon-arrow-down-left2:before {
-    content: "\ea3f";
-  }
-  .icon-arrow-left2:before {
-    content: "\ea40";
-  }
-</style>
-<style scoped>
-  #app {
-    position: relative;
-    height: 100%;
-    font-size: 1.4rem;
-    background-color: #333333;
-    max-width: 100rem;
-    margin: 0 auto;
-    padding: 4.5rem 4rem 1.5rem;
-    overflow: scroll;
-    color: #ffffff;
-  }
-  .nav-btn {
-    position: absolute;
-    padding: 0.5rem;
-    left: 0;
-    top: -100%;
-    transition: all 0.3s;
-    opacity: 0.8;
-    z-index: 99999;
-  }
-  .nav-btn.active{
-    top: 0;
-  }
-  .nav-btn-inner{
-    height: 3rem;
-    width: 3rem;
-    overflow: hidden;
-    border-radius: 50%;
-    background-color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.6rem;
-    color: #333333;
-  }
-  #page-nav{
-    position: absolute;
-    left: 4rem;
-    right: 4rem;
-    top: -100%;
-    padding: 0;
-    font-size: 1.6rem;
-    overflow: hidden;
-    max-height: 40%;
-    transition: all 0.3s;
-    z-index: 999999;
-  }
-  #page-nav.active{
-    top: 0;
-  }
-  .nav-link-box{
-    padding: 1rem;
-    background-color: #ffffff;
-    border-radius: 0 0 1rem 1rem;
-    font-size: 1.6rem;
-    line-height: 2rem;
-  }
-  .nav-link-box a{
-    margin: 0 0.5rem;
-    text-decoration: none;
-    color: #42b983;
-  }
-  .page-title{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 1.5rem 4rem;
-    height:3rem;
-    color: #ffffff;
-  }
-  .page-title .page-title-info{
-    border-bottom: 3px solid #42b983;
-  }
-
-</style>
