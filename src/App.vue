@@ -57,36 +57,32 @@
 </style>
 
 <template>
-<form method="post" action="/" id="car-info">
-  <div class="text-center car-title">
-    车辆信息录入
-  </div>
-  <div class="input-row">
-    <label for="device_id">设备号</label>
-    <input name="device_id" type="text" />
-  </div>
-
-  <div class="input-row">
-    <label for="car_num">车牌号</label>
-    <input name="car_num" type="text" />
-  </div>
-  <div class="input-row">
-    <label for="pin_pai">品牌</label>
-    <input name="pin_pai" type="text" />
-  </div>
-  <div class="input-row">
-    <label for="che_xing">车型</label>
-    <input name="che_xing" type="text" />
-  </div>
-  <div class="input-row">
-    <label for="engine">发动机</label>
-    <input name="engine" type="text" />
-  </div>
-  <div class="input-row button-box">
-    <button type="reset">重置</button>
-    <button type="submit">提交</button>
-  </div>
-</form>
+  <section id="gas-fee-notice">
+    <input type="" name="" v-model="price">
+    <br>
+    {{real}}
+    <br>
+    {{real15}}
+    <br>
+    {{totle}}
+    <br>
+    一百
+    {{hundred}}
+    <br>
+    五十
+    {{fifty}}
+    <br>
+    三十
+    {{thirty}}
+    <br>
+    二十
+    {{twenty}}
+    <br>
+    一十
+    {{ten}}
+    <br>
+    {{error}}
+  </section>
 </template>
 
 <script>
@@ -94,16 +90,67 @@ export default {
   name: 'app',
   data () {
     return {
-      navShow: false,
-      pageTitle: ''
+      price: '',
+      real: 0,
+      real15: 0,
+      totle: 0,
+      hundred: 0,
+      fifty: 0,
+      thirty: 0,
+      twenty: 0,
+      ten: 0,
+      error: ''
     }
   },
   created () {
-    this.$root.$on('updateTitle', this.changeTitle)
+    this.$watch('price', function (newVal) {
+      let _val = Math.ceil(parseInt(newVal, 10) * 1.5 / 10) * 10
+      if (_val > 0) {
+        this.real = parseInt(newVal, 10)
+        this.real15 = this.real * 1.5
+        this.totle = _val
+        this.error = ''
+        this.getHundred(_val)
+      } else {
+        this.error = '请输入大于0的数字'
+      }
+    })
   },
   methods: {
-    changeTitle (val) {
-      this.pageTitle = val
+    getHundred (val) {
+      if (val / 200 >= 1) {
+        this.hundred = Math.floor(val / 100)
+        this.getFifty(val % 100)
+      } else {
+        this.hundred = 0
+        this.getFifty(val)
+      }
+    },
+    getFifty (val) {
+      let result = this.numSum(val, 50)
+      this.fifty = result[0]
+      this.getThirty(result[1])
+    },
+    getThirty (val) {
+      let result = this.numSum(val, 30)
+      this.thirty = result[0]
+      this.getTwenty(result[1])
+    },
+    getTwenty (val) {
+      let result = this.numSum(val, 20)
+      this.twenty = result[0]
+      this.getTen(result[1])
+    },
+    getTen (val) {
+      let result = this.numSum(val, 10)
+      this.ten = result[0]
+    },
+    numSum (dividend, divisor) {
+      if (dividend / divisor >= 1) {
+        return [Math.floor(dividend / divisor), dividend % divisor]
+      } else {
+        return [0, dividend]
+      }
     }
   }
 }
